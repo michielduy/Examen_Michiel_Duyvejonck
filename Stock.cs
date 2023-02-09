@@ -21,6 +21,12 @@ namespace Examen_Michiel_Duyvejonck
             this._aantalPlaatsen = aantalPlaatsen;
 
         }
+        public Stock(List<StockPlaats> plaatsen, int aantalPlaatsen)
+        {
+            this._plaatsen = plaatsen;
+            this._aantalPlaatsen = aantalPlaatsen;
+        }
+
         private void AddExistingItemsToStock(StockPlaats plaats, int aantal)
         {
             plaats.addHoeveelheid(aantal);

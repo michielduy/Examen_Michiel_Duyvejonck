@@ -45,5 +45,10 @@ namespace Examen_Michiel_Duyvejonck
                 _hoeveelheidInPlaats += hoeveelHeidToAdd; 
             }
         }
+
+        public override string ToString()
+        {
+            return this.Item.Name;
+        }
     }
 }
