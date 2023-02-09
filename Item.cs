@@ -8,6 +8,7 @@ namespace Examen_Michiel_Duyvejonck
 {
     public class Item
     {
+        //basic item class
         public int MaximumHoeveelheid { get; set; }
         public string Name { get; set; }
 

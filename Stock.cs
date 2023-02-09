@@ -8,11 +8,13 @@ namespace Examen_Michiel_Duyvejonck
 {
     public delegate void StockEventHandler(Item thesender, int aantal);
     public delegate void StockWithdrawEvent(Item thesender, string aantal);
+    
     public class Stock
     {
         public event StockEventHandler StockVol;
         public event StockWithdrawEvent StockWithDraw;
         public event StockPlaatsEvent KritiekeHoeveelheid;
+        // de nodige events die in de stock zijn 
         public List<StockPlaats> _plaatsen;
         public int _aantalPlaatsen;
         public Stock(int aantalPlaatsen)
@@ -25,6 +27,7 @@ namespace Examen_Michiel_Duyvejonck
         {
             this._plaatsen = plaatsen;
             this._aantalPlaatsen = aantalPlaatsen;
+            //constructor voor de WFA
         }
 
         private void AddExistingItemsToStock(StockPlaats plaats, int aantal)

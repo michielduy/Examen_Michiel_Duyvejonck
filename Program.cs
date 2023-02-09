@@ -14,6 +14,7 @@ namespace Examen_Michiel_Duyvejonck
             int plaatsen = 10;
 
             Stock stock;
+            //aanmaken van je stock met een limiet op de plaatsen
             if (int.TryParse(Console.ReadLine(), out plaatsen))
             {
                 stock = new Stock(plaatsen);
@@ -23,10 +24,11 @@ namespace Examen_Michiel_Duyvejonck
                 Console.WriteLine("standaard 10 plaatsen");
                 stock = new Stock(plaatsen);
             }
+            //adden van de stock events aan de specifieke stock
             stock.StockVol += Stock_StockVol;
             stock.StockWithDraw += Stock_StockWithDraw;
             stock.KritiekeHoeveelheid += StockPlaats_KritiekeHoeveelheid;
-            mainLoop(stock);
+            mainLoop(stock);//start main program loop die ui geeft
             
         }
         private static void StockPlaats_KritiekeHoeveelheid(StockPlaats sender, int e)
@@ -47,6 +49,7 @@ namespace Examen_Michiel_Duyvejonck
 
         public static void Stock_StockVol(Item sender, int e)
         {
+            //melding aan te passen vanuit hier
             Console.WriteLine("Je probeert van {0}, {1} items in de stock te stoppen.\nMaar de stock zit vol", sender.Name, e);
         }
         public static void StockPlaats_PlaatsIsVol(StockPlaats sender, int e)
@@ -56,6 +59,7 @@ namespace Examen_Michiel_Duyvejonck
 
         public static void mainLoop(Stock stock)
         {
+            //basic program loop 
             string exit = "";
             while (exit.ToLower() != "exit")
             {
