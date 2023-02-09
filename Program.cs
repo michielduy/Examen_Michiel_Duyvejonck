@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Examen_Michiel_Duyvejonck
 {
+    //WF app werkt niet mits nog wat werk krijg ik deze mss aan het werk;)
     public class Program
     {
         static void Main(string[] args)
