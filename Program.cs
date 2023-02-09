@@ -11,15 +11,17 @@ namespace Examen_Michiel_Duyvejonck
         static void Main(string[] args)
         {
             Console.WriteLine("Hoeveel plaatsen bevat je stock");
-            int plaatsen = 0;
-            Stock stock = new Stock(10);
+            int plaatsen = 10;
+
+            Stock stock;
             if (int.TryParse(Console.ReadLine(), out plaatsen))
             {
-                stock._aantalPlaatsen = plaatsen;
+                stock = new Stock(plaatsen);
             }
             else
             {
                 Console.WriteLine("standaard 10 plaatsen");
+                stock = new Stock(plaatsen);
             }
             stock.StockVol += Stock_StockVol;
             stock.StockWithDraw += Stock_StockWithDraw;
@@ -29,7 +31,7 @@ namespace Examen_Michiel_Duyvejonck
         }
         private static void StockPlaats_KritiekeHoeveelheid(StockPlaats sender, int e)
         {
-            Console.WriteLine("Er is minder dan 20procent beschikbaar van {0}, er is nog {1} procent beschikbaar", sender.Item.Name, sender._hoeveelheidInPlaats / sender.Item.MaximumHoeveelheid * 100);
+            Console.WriteLine("Er is minder dan 20procent beschikbaar van {0}, er is nog {1} beschikbaar", sender.Item.Name, sender._hoeveelheidInPlaats);
         }
         private static void Stock_StockWithDraw(Item thesender, string aantal)
         {

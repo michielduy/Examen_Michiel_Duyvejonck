@@ -24,21 +24,30 @@ namespace Examen_Michiel_Duyvejonck
         private void AddExistingItemsToStock(StockPlaats plaats, int aantal)
         {
             plaats.addHoeveelheid(aantal);
+            Console.WriteLine("Item was added to the stock");
         }
         public void add(Item itemToAdd, int aantal)
         {
-            foreach (StockPlaats plaats in _plaatsen)
+            if (_plaatsen.Count ==0)
             {
-                if (plaats.Item.Name.ToLower() == itemToAdd.Name.ToLower())
-                {
-                    AddExistingItemsToStock(plaats, aantal);
-                }
-                else
-                {
-                    AddNewItemToStock(itemToAdd, aantal);
-                }
+                AddNewItemToStock(itemToAdd, aantal);
             }
-            Console.WriteLine("Item was added to the stock");
+            else
+            {
+
+                foreach (StockPlaats plaats in _plaatsen)
+                {
+                    if (plaats.Item.Name.ToLower() == itemToAdd.Name.ToLower())
+                    {
+                        AddExistingItemsToStock(plaats, aantal);
+                    }
+                    else
+                    {
+                        AddNewItemToStock(itemToAdd, aantal);
+                    }
+                } 
+            }
+
         }
 
         private void AddNewItemToStock(Item itemToAdd, int aantal)
@@ -46,6 +55,7 @@ namespace Examen_Michiel_Duyvejonck
             if (_plaatsen.Count < this._aantalPlaatsen)
             {
                 _plaatsen.Add(new StockPlaats(itemToAdd, aantal));
+                Console.WriteLine("Item was added to the stock");
             }
             else
             {
